@@ -1,0 +1,9 @@
+<gases>
+
+<gas name = "default">
+<mass>5.0e-26</mass>
+<diam>3.5e-10</diam>
+<temp>273</temp>
+</gas>
+
+</gases>

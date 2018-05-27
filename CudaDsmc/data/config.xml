@@ -1,0 +1,17 @@
+<config>
+
+<grid>
+	<min>0 0 0</min>
+	<max>0.3 0.18 0.18</max>
+	<dim>30 18 18</dim>
+</grid>
+
+<density>1.0e20</density>
+<fnum>0.2e14</fnum>
+<temp>300</temp>
+<streamvel>0 0 0</streamvel>
+<periodic>z</periodic>
+
+<gas file ="gases.xml">default</gas>
+
+</config>
