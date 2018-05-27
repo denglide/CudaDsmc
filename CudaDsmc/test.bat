@@ -1,1 +1,1 @@
-CudaDsmc.exe -dt 0.25e-4 -f data/config_mln.xml
+CudaDsmc.exe -dt 0.25e-4 -f data/config_500k.xml
