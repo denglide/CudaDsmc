@@ -49,7 +49,7 @@ void	DSMCSolver::Init(const settings_t& s)
 void	DSMCSolver::SetModel(Model* model)
 {
 	const float*	vertices = &model->GetSurfaces()[0].vertices[0].x;
-	const uint		vertSize = model->GetSurfaces()[0].vertices.size();
+	const size_t	vertSize = model->GetSurfaces()[0].vertices.size();
 
 	InitRegularGrid(model->GetGrid(), vertices, vertSize);
 }

@@ -25,17 +25,17 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #define DSMC_H
 
 #define DSMC_PI 3.14159265358979f
-#define DSMC_DT 2e-6
-#define	DSMC_DIAM 3.5e-10
-#define DSMC_MOL_MASS 5.0e-26
-#define DSMC_mm 5.0e-26
-#define	DSMC_K 8.617343e-5
-#define DSMC_BOLZ 1.3806e-23
-#define DSMC_T0 273
-#define DSMC_FNUM 0.2e14
-#define DSMC_T 300
+#define DSMC_DT 2e-6f
+#define	DSMC_DIAM 3.5e-10f
+#define DSMC_MOL_MASS 5.0e-26f
+#define DSMC_mm 5.0e-26f
+#define	DSMC_K 8.617343e-5f
+#define DSMC_BOLZ 1.3806e-23f
+#define DSMC_T0 273.0f
+#define DSMC_FNUM 0.2e14f
+#define DSMC_T 300.0f
 
-#define DSMC_DENSITY 1.0e20
+#define DSMC_DENSITY 1.0e20f
 
 #define DSMC_M 0.6
 #define DSMC_E 0.3

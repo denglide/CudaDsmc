@@ -22,12 +22,9 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 #include "dsmc_kernel.cuh"
-
-#include <stdexcept>
-
 #include "dsmc.h"
 #include "MersenneTwister.h"
-
+#include <stdexcept>
 #include <cuda_gl_interop.h>
 
 namespace	dsmc

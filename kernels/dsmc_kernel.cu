@@ -236,7 +236,7 @@ void	UploadIndices(reg_grid_t& grid)
 	uint offset = 0;
 	for(uint i = 0; i < grid.cellCount(); i++)
 	{
-		uint	idxCount = grid[i].first.size();
+		size_t	idxCount = grid[i].first.size();
 
 		if(idxCount)
 		{

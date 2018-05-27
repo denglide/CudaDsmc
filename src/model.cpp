@@ -105,10 +105,10 @@ Model::surface_t	Model::surface_t::merge(const	std::vector<Model::surface_t>& su
 
 	if(!surfaces.empty())
 	{
-		uint	total_idx  = 0;
-		uint	total_vert = 0;
+		size_t	total_idx  = 0;
+		size_t	total_vert = 0;
 
-		for(uint i = 0; i < surfaces.size(); i++)
+		for(size_t i = 0; i < surfaces.size(); i++)
 		{
 			total_idx  += surfaces[i].indices.size();
 			total_vert += surfaces[i].vertices.size();
@@ -124,11 +124,11 @@ Model::surface_t	Model::surface_t::merge(const	std::vector<Model::surface_t>& su
 
 		surf.name = name;
 
-		uint offset = 0;
-		uint vert_offset = 0;
-		uint	max_idx = 0;
+		size_t offset = 0;
+		size_t vert_offset = 0;
+		size_t max_idx = 0;
 
-		for(int i = 0; i < surfaces.size(); i++)
+		for(size_t i = 0; i < surfaces.size(); i++)
 		{
 			surf.vertices.insert(surf.vertices.begin()+vert_offset, surfaces[i].vertices.begin(), surfaces[i].vertices.end());
 			surf.texCoords.insert(surf.texCoords.begin()+vert_offset, surfaces[i].texCoords.begin(),surfaces[i].texCoords.end());
@@ -264,8 +264,9 @@ void	stream_write(ofstream& out, T* v, int count)
 template	<class	T>
 void	stream_write(ofstream& out, const vector<T>& v)
 {
-	stream_write(out, v.size());
-	stream_write(out, &v[0], v.size());
+	uint32_t size = v.size();
+	stream_write(out, size);
+	stream_write(out, &v[0], size);
 }
 
 template	<class	T>
@@ -380,7 +381,7 @@ bool	Model::LoadRaw(const char* fname, bool createBuffers)
 	stream_read(in, grid.cellSize);
 	stream_read(in, grid.dim);
 
-	size_t	size = 0;
+	uint32_t	size = 0;
 
 	stream_read(in, size);
 	grid.nodes.resize(size);
@@ -410,8 +411,6 @@ bool	Model::Load(const char* filename, bool calcNormals)
 
 	unsigned char l_char; //Char variable
 	unsigned short l_qty; //Number of elements in each chunk
-
-	unsigned short l_face_flags; //Flag that stores some face information
 
 	vec3_t	vert;
 	vec2_t	texc;
@@ -544,7 +543,7 @@ bool	Model::Load(const char* filename, bool calcNormals)
 	}
 	fclose (l_file);
 
-	printf("%d surfaces loaded\n", surfaces.size());
+	printf("%I64u surfaces loaded\n", surfaces.size());
 
 	for(int i = 0; i < surfaces.size(); i++)
 	{
@@ -570,7 +569,7 @@ bool	Model::Load(const char* filename, bool calcNormals)
 
 	surfaces[0].CreateBuffers();
 
-	printf("Model loaded. Tris: %d, vertices %d\n",surfaces[0].indices.size()/3, surfaces[0].vertices.size());
+	printf("Model loaded. Tris: %I64u, vertices %I64u\n",surfaces[0].indices.size()/3, surfaces[0].vertices.size());
 
 	bbox = surface_t::merge_bbox(surfaces);
 

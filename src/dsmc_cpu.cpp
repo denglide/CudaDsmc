@@ -178,7 +178,7 @@ void	UpdateGridCPU(float *d_pos, unsigned int numParticles)
 	for(int j = 0; j < N_GRID_CELLS; j++)
 		g_hashTable[j].clear();
 	
-	for (int i = 0; i < numParticles; i++) 
+	for (unsigned int i = 0; i < numParticles; i++) 
 	{
 		float2 pos = make_float2(d_pos[i*2+0],d_pos[i*2+1]);
 		unsigned int hash = GetCellID(pos);
@@ -200,7 +200,7 @@ void	ComputeNanbuCPU(float *d_speeds, unsigned int bin_size)
 		{
 			unsigned int	cellid = i * GRID_DIM_X + j;
 			
-			unsigned int	part_in_cell = g_hashTable[cellid].size();
+			size_t	part_in_cell = g_hashTable[cellid].size();
 
 			for(unsigned int ii = 0; ii < part_in_cell; ii++)
 			{
@@ -248,7 +248,7 @@ void	GenerateInitialSpeedsPerCellCPU(float* vels, float* pos, float sx, float sy
 			float	cell_x = gridBoundaries_x + j*cellSize_x;
 			float	cell_y = gridBoundaries_y + i*cellSize_y;
 
-			for(int k = 0; k < partPerCell; k++)
+			for(unsigned int k = 0; k < partPerCell; k++)
 			{
 				unsigned int idx = (i*GRID_DIM_X + j)*partPerCell + k;
 

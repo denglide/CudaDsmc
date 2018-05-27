@@ -24,35 +24,37 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include "matrix.h"
 #include "memory.h"
 #include <math.h>
+#include <cassert>
 
 matrix4x4&	matrix4x4::operator*(const matrix4x4& m)
 {
-	matrix4x4	mm;
-	return mm;
+	assert(false && "NYI");
+	return *this;
 }
 
 vec3_t&		matrix4x4::operator*(const vec3_t& v)
 {
-	vec3_t	vv;
-	return	vv;
+	assert(false && "NYI");
+	static vec3_t null_vec;
+	return	null_vec;
 }
 
 matrix4x4&	matrix4x4::inverse()
 {
-	matrix4x4	m;
-	return m;
+	assert(false && "NYI");
+	return *this;
 }
 
 matrix4x4&	matrix4x4::transpose()
 {
-	matrix4x4	m;
-	return m;
+	assert(false && "NYI");
+	return *this;
 }
 
 matrix4x4&	matrix4x4::invtrans()
 {
-	matrix4x4	m;
-	return m;
+	assert(false && "NYI");
+	return *this;
 }
 
 matrix4x4	matrix4x4::inverse(const matrix4x4& m)

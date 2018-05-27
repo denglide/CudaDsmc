@@ -123,7 +123,7 @@ __device__ inline uint	LCGStep(unsigned int* seed)
 	return *seed;
 }
 
-__device__ inline uint	TausStep(uint* z, int S1, int S2, int S3, int M)
+__device__ inline uint	TausStep(uint* z, int S1, int S2, int S3, unsigned long M)
 {
 	uint	b = ((((*z) << S1) ^ (*z)) >> S2);
 

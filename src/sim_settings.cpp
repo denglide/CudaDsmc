@@ -22,14 +22,12 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 #include "sim_settings.h"
-
+#include "rapidxml/rapidxml.hpp"
+#include "dsmc.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-#include "rapidxml/rapidxml.hpp"
-
-#include "dsmc.h"
 
 using namespace rapidxml;
 
@@ -44,7 +42,7 @@ settings_t::settings_t(): benchmark(false), cpu(false), geometry(true), mt(false
 						boundaries.get_ysize()/grid_dim.y,
 						boundaries.get_zsize()/grid_dim.z);
 }
-//size_t fread ( void * ptr, size_t size, size_t count, FILE * stream );
+
 void	settings_t::readFromFile(const char* filename)
 {
 	xml_document<> doc;
@@ -169,19 +167,19 @@ void	settings_t::readFromCmdLine(int argc, char** argv)
 
 		if(!strcmp(argv[i],"-density"))
 		{
-			density = atof(argv[i+1]);
+			density = (float)atof(argv[i+1]);
 			continue;
 		}
 
 		if(!strcmp(argv[i],"-dt"))
 		{
-			dt = atof(argv[i+1]);
+			dt = (float)atof(argv[i+1]);
 			continue;
 		}
 
 		if(!strcmp(argv[i],"-run-for"))
 		{
-			maxRunTime = atof(argv[i+1]);
+			maxRunTime = (float)atof(argv[i+1]);
 			continue;
 		}
 	}
